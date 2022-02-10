@@ -16,9 +16,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class MergeSortedArrayTest {
 
     Solution solution = new Solution();
+    Solution1 solution1 = new Solution1();
     @ParameterizedTest
     @MethodSource("provideData")
-    void plusOne(int[] nums1, int m, int[] nums2, int n, int[] answer) {
+    void merge(int[] nums1, int m, int[] nums2, int n, int[] answer) {
         solution.merge(nums1,m,nums2,n);
         assertArrayEquals(nums1,answer,
                 "Answer:" + Arrays.toString(answer) + " ;Error result:" + Arrays.toString(nums1));
@@ -26,11 +27,20 @@ class MergeSortedArrayTest {
 
     private static Stream<Arguments> provideData() {
         return Stream.of(
-                Arguments.of(new int[]{1,2,3,0,0},5,new int[]{2,4},2,new int[]{1,2,2,3,4}),
+                Arguments.of(new int[]{1,2,3,0,0},3,new int[]{2,4},2,new int[]{1,2,2,3,4}),
                 Arguments.of(new int[]{1},1,new int[]{},0,new int[]{1}),
                 Arguments.of(new int[]{4,5,6,0,0,0},3,new int[]{1,2,3},3,new int[]{1,2,3,4,5,6}),
+                Arguments.of(new int[]{0,2,0,0,0,0,0},2,new int[]{-1,-1,2,5,6},5,new int[]{-1, -1, 0, 2, 2, 5, 6}),
                 Arguments.of(new int[]{0},0,new int[]{1},1,new int[]{1})
         );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideData")
+    void merge1(int[] nums1, int m, int[] nums2, int n, int[] answer) {
+        solution1.merge(nums1,m,nums2,n);
+        assertArrayEquals(nums1,answer,
+                "Answer:" + Arrays.toString(answer) + " ;Error result:" + Arrays.toString(nums1));
     }
 
 }
