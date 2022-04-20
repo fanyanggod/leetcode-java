@@ -19,23 +19,23 @@ import static org.junit.jupiter.api.Assertions.*;
  * @date 2022/2/10
  */
 class SimplifiedFractionsTest {
-    Solution solution = new Solution();
+  Solution solution = new Solution();
 
+  @ParameterizedTest
+  @MethodSource("provideData")
+  void simplifiedFractions(int n, List<String> answer) {
+    List<String> result = solution.simplifiedFractions(n);
+    assertArrayEquals(
+        result.toArray(),
+        answer.toArray(),
+        "Answer:" + answer.toString() + " ;Error result:" + result.toString());
+  }
 
-    @ParameterizedTest
-    @MethodSource("provideData")
-    void simplifiedFractions(int n, List<String> answer) {
-        List<String> result = solution.simplifiedFractions(n);
-        assertArrayEquals(result.toArray(),answer.toArray(),
-                "Answer:" + answer.toString() + " ;Error result:" + result.toString());
-    }
-
-    private static Stream<Arguments> provideData() {
-        return Stream.of(
-                Arguments.of(1, new ArrayList<>()),
-                Arguments.of(2, Arrays.asList("1/2")),
-                Arguments.of(3, Arrays.asList("1/2","1/3","2/3")),
-                Arguments.of(4, Arrays.asList("1/2","1/3","2/3","1/4","3/4"))
-        );
-    }
+  private static Stream<Arguments> provideData() {
+    return Stream.of(
+        Arguments.of(1, new ArrayList<>()),
+        Arguments.of(2, Arrays.asList("1/2")),
+        Arguments.of(3, Arrays.asList("1/2", "1/3", "2/3")),
+        Arguments.of(4, Arrays.asList("1/2", "1/3", "2/3", "1/4", "3/4")));
+  }
 }

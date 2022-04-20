@@ -14,25 +14,23 @@ import static org.junit.jupiter.api.Assertions.*;
  * @date 2022/2/13
  */
 class MaxNumberOfBalloonsTest {
-    Solution solution = new Solution();
+  Solution solution = new Solution();
 
-    @ParameterizedTest
-    @MethodSource("provideData")
-    void maxNumberOfBalloons(String text, int answer) {
-        int result = solution.maxNumberOfBalloons(text);
-        assertEquals(result, answer, "Answer:" + answer + " ;Error result:" + result);
-    }
+  @ParameterizedTest
+  @MethodSource("provideData")
+  void maxNumberOfBalloons(String text, int answer) {
+    int result = solution.maxNumberOfBalloons(text);
+    assertEquals(result, answer, "Answer:" + answer + " ;Error result:" + result);
+  }
 
-
-    private static Stream<Arguments> provideData() {
-        return Stream.of(
-                Arguments.of("nlaebolko",1),
-                Arguments.of("leetcode",0),
-                Arguments.of("balon",0),
-                Arguments.of("baloon",0),
-                Arguments.of("ballon",0),
-                Arguments.of("balllllllllllloooooooooon",1),
-                Arguments.of("loonbalxballpoon",2)
-        );
-    }
+  private static Stream<Arguments> provideData() {
+    return Stream.of(
+        Arguments.of("nlaebolko", 1),
+        Arguments.of("leetcode", 0),
+        Arguments.of("balon", 0),
+        Arguments.of("baloon", 0),
+        Arguments.of("ballon", 0),
+        Arguments.of("balllllllllllloooooooooon", 1),
+        Arguments.of("loonbalxballpoon", 2));
+  }
 }

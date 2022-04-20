@@ -17,20 +17,17 @@ import static org.junit.jupiter.api.Assertions.*;
  * @date 2022/2/11
  */
 class MinmumDifferenceTest {
-    Solution solution = new Solution();
+  Solution solution = new Solution();
 
-    @ParameterizedTest
-    @MethodSource("provideData")
-    void minimumDifference(int[] nums, int k, int answer) {
-        int result = solution.minimumDifference(nums, k);
-        assertEquals(result, answer, "Answer:" + answer + " ;Error result:" + result);
-    }
+  @ParameterizedTest
+  @MethodSource("provideData")
+  void minimumDifference(int[] nums, int k, int answer) {
+    int result = solution.minimumDifference(nums, k);
+    assertEquals(result, answer, "Answer:" + answer + " ;Error result:" + result);
+  }
 
-
-    private static Stream<Arguments> provideData() {
-        return Stream.of(
-                Arguments.of(new int[]{90}, 1, 0),
-                Arguments.of(new int[]{9, 4, 1, 7}, 2, 2)
-        );
-    }
+  private static Stream<Arguments> provideData() {
+    return Stream.of(
+        Arguments.of(new int[] {90}, 1, 0), Arguments.of(new int[] {9, 4, 1, 7}, 2, 2));
+  }
 }

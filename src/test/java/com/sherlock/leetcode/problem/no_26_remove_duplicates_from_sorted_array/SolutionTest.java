@@ -11,11 +11,11 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 @Slf4j
 class SolutionTest {
-    Solution solution = new Solution();
+  Solution solution = new Solution();
 
-    @Test
-    void removeDuplicates() {
-        int result = solution.removeDuplicates(new int[]{1,1,2});
-        log.info(String.valueOf(result));
-    }
+  @Test
+  void removeDuplicates() {
+    int result = solution.removeDuplicates(new int[] {1, 1, 2});
+    log.info(String.valueOf(result));
+  }
 }
